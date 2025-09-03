@@ -1,25 +1,304 @@
-.sticky-cta {
-    position: fixed;
-    bottom: -100px; /* Start hidden below the viewport */
-    left: 0;
-    width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #0E7CFF;
+    --emphasis-color: #FF6B6B;
+    --text-color: #212529;
+    --background-color: #ffffff;
+    --surface-color: #f8f9fa;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 28px; }
+h3 { font-size: 22px; }
+
+.hero {
+    background: linear-gradient(170deg, #e6f0ff 0%, #ffffff 100%);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero .subtitle {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.cta-button {
+    display: inline-block;
     background-color: var(--primary-color);
     color: #fff;
+    padding: 16px 32px;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(14, 124, 255, 0.2);
+    transition: all 0.3s ease;
+    font-weight: 700;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(14, 124, 255, 0.3);
+}
+
+.social-proof {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-weight: 700;
+    color: #555;
+}
+
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 30px 0;
     text-align: center;
+    margin-top: 80px;
+}
+
+footer a {
+    color: #f8f9fa;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.service-scope {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background-color: var(--surface-color);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.service-scope ul {
+    list-style: '✓';
+    padding-left: 20px;
+}
+
+.service-scope li {
+    padding: 8px 0;
+}
+
+.flow-steps {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    text-align: center;
+}
+
+.flow-steps li {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+}
+
+.flow-steps span {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.pricing-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.plan {
+    background: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.plan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.plan.recommended {
+    border: 2px solid var(--primary-color);
+}
+
+.plan h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.plan .price {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 35px;
+}
+
+.plan li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.plan li:last-child {
+    border-bottom: none;
+}
+
+.faq-container details {
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+}
+
+.faq-container summary {
     padding: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+}
+
+.faq-container summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-container summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 24px;
+    transition: transform 0.2s ease;
+}
+
+.faq-container details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-container p {
+    padding: 0 20px 20px;
+    margin: 0;
+    color: #555;
+}
+
+#contact-form {
+    max-width: 720px;
+    margin: 40px auto;
+    background: var(--surface-color);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(14, 124, 255, 0.2);
+}
+
+#contact-form button {
+    width: 100%;
+    padding: 16px;
+    border: none;
     font-size: 18px;
     font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    transition: bottom 0.3s ease;
 }
 
-.sticky-cta.visible {
-    bottom: 0; /* Slide in to view */
+.sticky-cta {
+    display: none;
 }
 
-/* Only apply sticky behavior on mobile */
 @media (max-width: 768px) {
-    /* The JS will handle visibility, so no extra rules needed here for display */
+    .sticky-cta {
+        display: block;
+        position: fixed;
+        bottom: -100px; /* Start hidden */
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        transition: bottom 0.3s ease;
+    }
+
+    .sticky-cta.visible {
+        bottom: 0;
+    }
 }
